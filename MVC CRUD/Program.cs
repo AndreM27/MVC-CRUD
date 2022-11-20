@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MVC_CRUD.Data;
+
+//dependency injection
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MVC_CRUDContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MVC_CRUDContext") ?? throw new InvalidOperationException("Connection string 'MVC_CRUDContext' not found.")));

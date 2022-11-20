@@ -13,7 +13,7 @@ namespace MVC_CRUD.Controllers
     public class UsersController : Controller
     {
         private readonly MVC_CRUDContext _context;
-
+        //Dependency injection
         public UsersController(MVC_CRUDContext context)
         {
             _context = context;
@@ -35,7 +35,7 @@ namespace MVC_CRUD.Controllers
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Users Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Surname")] Users users)
@@ -157,5 +157,7 @@ namespace MVC_CRUD.Controllers
         {
           return (_context.Users?.Any(e => e.ID == id)).GetValueOrDefault();
         }
+
+        
     }
 }
